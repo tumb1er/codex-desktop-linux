@@ -327,14 +327,11 @@ fi
 export CHROME_DESKTOP="${CHROME_DESKTOP:-codex-desktop-linux.desktop}"
 
 cd "$SCRIPT_DIR"
-<<<<<<< HEAD
-exec "$SCRIPT_DIR/electron" --no-sandbox --ozone-platform-hint=auto --disable-gpu-sandbox --enable-features=WaylandWindowDecorations "$@"
-=======
 if [ "$DISABLE_SANDBOX" = "1" ]; then
-    exec -a "codex-desktop-linux" "$SCRIPT_DIR/electron" --no-sandbox --class=Codex --name=Codex --icon="$SCRIPT_DIR/icon.png" "$@"
+    exec -a "codex-desktop-linux" "$SCRIPT_DIR/electron" --no-sandbox --class=Codex --name=Codex --icon="$SCRIPT_DIR/icon.png" --no-sandbox --ozone-platform-hint=auto --disable-gpu-sandbox --enable-features=WaylandWindowDecorations "$@"
 fi
-exec -a "codex-desktop-linux" "$SCRIPT_DIR/electron" --class=Codex --name=Codex --icon="$SCRIPT_DIR/icon.png" "$@"
->>>>>>> DhanushSantosh/aurora
+exec -a "codex-desktop-linux" "$SCRIPT_DIR/electron" --class=Codex --name=Codex --icon="$SCRIPT_DIR/icon.png" --no-sandbox --ozone-platform-hint=auto --disable-gpu-sandbox --enable-features=WaylandWindowDecorations "$@"
+
 SCRIPT
 
     chmod +x "$INSTALL_DIR/start.sh"
